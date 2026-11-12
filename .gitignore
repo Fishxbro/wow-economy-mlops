@@ -1,0 +1,73 @@
+
+# ==========================
+# PYTHON
+# ==========================
+
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# ==========================
+# ENTORNOS VIRTUALES
+# ==========================
+
+.venv/
+venv/
+env/
+
+# ==========================
+# VS CODE
+# ==========================
+
+.vscode/
+
+# ==========================
+# ARCHIVOS TEMPORALES
+# ==========================
+
+.DS_Store
+Thumbs.db
+*.log
+
+# ==========================
+# VARIABLES Y CREDENCIALES
+# ==========================
+
+.env
+.env.*
+!.env.example
+
+# ==========================
+# DATASETS
+# ==========================
+
+data/raw/*
+data/processed/*
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# ==========================
+# MODELOS ENTRENADOS
+# ==========================
+
+models/*
+!models/.gitkeep
+
+*.joblib
+*.pkl
+
+# ==========================
+# MLFLOW
+# ==========================
+
+mlruns/
+mlflow.db
+mlflow/
+
+# ==========================
+# CACHE DVC (FUTURO)
+# ==========================
+
+.dvc/cache/
