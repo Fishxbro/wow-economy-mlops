@@ -39,26 +39,6 @@ Thumbs.db
 !.env.example
 
 # ==========================
-# DATASETS
-# ==========================
-
-data/raw/*
-data/processed/*
-
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-
-# ==========================
-# MODELOS ENTRENADOS
-# ==========================
-
-models/*
-!models/.gitkeep
-
-*.joblib
-*.pkl
-
-# ==========================
 # MLFLOW
 # ==========================
 

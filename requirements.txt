@@ -3,10 +3,10 @@ numpy
 scikit-learn
 joblib
 mlflow
-dvc
 fastapi
 uvicorn[standard]
 pydantic
 matplotlib
 pytest
 httpx
+dvc==3.67.1
