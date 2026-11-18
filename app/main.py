@@ -4,8 +4,9 @@ import joblib
 import pandas as pd
 
 from pathlib import Path
-from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 from src.features import build_features, FEATURE_COLUMNS
 
@@ -16,12 +17,18 @@ DATA_PATH = ROOT / "data" / "processed" / "prices.csv"
 MODEL_PATH = ROOT / "models" / "model.joblib"
 METRICS_PATH = ROOT / "models" / "metrics.json"
 
-STATIC_PATH = ROOT / "app" / "static"
-
 app = FastAPI(
     title="WoW Economy API",
     description="API de precios y predicciones de World of Warcraft",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"^http://(localhost|127\.0\.0\.1):\d+$",
+    allow_methods=["GET"],
+    allow_headers=["*"],
+    expose_headers=["X-Total-Count"],
 )
 
 
@@ -50,7 +57,7 @@ def load_model():
 @app.get("/")
 def home():
 
-    return FileResponse(STATIC_PATH / "index.html")
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
@@ -66,8 +73,10 @@ def health():
 
 @app.get("/items")
 def get_items(
+    response: Response,
     search: str = Query(default="", max_length=100),
-    limit: int = Query(default=100, ge=1, le=500)
+    limit: int = Query(default=100, ge=1, le=500),
+    offset: int = Query(default=0, ge=0),
 ):
 
     prices = load_prices()
@@ -87,11 +96,13 @@ def get_items(
             latest["name"].str.contains(
                 search,
                 case=False,
-                na=False
+                na=False,
+                regex=False,
             )
         ]
 
-    latest = latest.sort_values("name").head(limit)
+    response.headers["X-Total-Count"] = str(len(latest))
+    latest = latest.sort_values(["name", "item_key"]).iloc[offset:offset + limit]
 
     return latest.to_dict(orient="records")
 

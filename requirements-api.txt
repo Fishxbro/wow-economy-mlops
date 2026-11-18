@@ -1,0 +1,8 @@
+# Dependencias necesarias para ejecutar app/main.py.
+# El entrenamiento y Airflow usan el entorno completo de requirements.txt.
+fastapi
+uvicorn[standard]
+pandas
+numpy
+joblib
+scikit-learn
