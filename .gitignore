@@ -61,3 +61,12 @@ airflow/logs/
 airflow/config/
 airflow/plugins/__pycache__/
 airflow/dags/__pycache__/
+
+# FRONTEND AZEROTH
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example

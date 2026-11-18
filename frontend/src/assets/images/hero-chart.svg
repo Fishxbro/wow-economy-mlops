@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="424" height="424" viewBox="0 0 424 424" fill="none">
+  <defs>
+    <radialGradient id="disc" cx="0" cy="0" r="1" gradientTransform="translate(200 230) rotate(90) scale(230)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#354a55"/>
+      <stop offset=".54" stop-color="#1a2c37"/>
+      <stop offset="1" stop-color="#10191f"/>
+    </radialGradient>
+    <linearGradient id="chartFill" x1="212" y1="95" x2="212" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9b76b" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#d9b76b" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="discClip">
+      <circle cx="212" cy="212" r="181"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="212" cy="212" r="211" stroke="#4b483d" stroke-opacity=".65"/>
+  <circle cx="212" cy="212" r="201" stroke="#a88643" stroke-width="2" stroke-linecap="round" stroke-dasharray=".1 34.98" opacity=".9"/>
+  <circle cx="212" cy="212" r="193" stroke="#9a7739" stroke-opacity=".8"/>
+  <circle cx="212" cy="212" r="181" fill="url(#disc)" stroke="#c79b4a" stroke-width="2"/>
+  <circle cx="212" cy="212" r="159" stroke="#627076" stroke-opacity=".62"/>
+  <circle cx="212" cy="212" r="137" stroke="#718084" stroke-opacity=".55"/>
+
+  <g fill="#b18d46">
+    <circle cx="212" cy="11" r="2"/>
+    <circle cx="354" cy="70" r="2"/>
+    <circle cx="413" cy="212" r="2"/>
+    <circle cx="354" cy="354" r="2"/>
+    <circle cx="212" cy="413" r="2"/>
+    <circle cx="70" cy="354" r="2"/>
+    <circle cx="11" cy="212" r="2"/>
+    <circle cx="70" cy="70" r="2"/>
+  </g>
+
+  <g clip-path="url(#discClip)">
+    <path d="M73 252 121 229 151 245 182 185 213 202 259 139 296 164 350 95V360H73Z" fill="url(#chartFill)"/>
+    <path d="M73 252 121 229 151 245 182 185 213 202 259 139 296 164 350 95" stroke="#e2b968" stroke-width="4" stroke-linejoin="miter"/>
+    <g fill="#e2b968" stroke="#0d1419" stroke-width="2.5">
+      <circle cx="121" cy="229" r="4"/>
+      <circle cx="182" cy="185" r="4"/>
+      <circle cx="259" cy="139" r="4"/>
+      <circle cx="350" cy="95" r="4"/>
+    </g>
+  </g>
+</svg>

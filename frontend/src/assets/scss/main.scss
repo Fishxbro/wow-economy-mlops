@@ -1,0 +1,565 @@
+@use "./variables" as *;
+@import "bootstrap/scss/bootstrap";
+@import "./dashboard";
+
+/*════════════════════════════════════════════════════
+꧁꧂⊱⊱══════════════════ MENU ══════════════════⊰⊰꧁꧂
+═════════════════════════════════════════════════════*/
+
+/*  ╔═══════════════════════════════════════╗
+    ║                0.General              ║
+    ╠═══════════════════════════════════════╣
+    ║                 1.Flex                ║
+    ╠═══════════════════════════════════════╣
+    ║                 2.Text                ║
+    ╠═══════════════════════════════════════╣
+    ║              3.Components             ║
+    ╠═══════════════════════════════════════╣
+    ║               4.Overwrite             ║
+    ╚═══════════════════════════════════════╝  */
+
+
+/*════════════════════════════════════════════════════
+꧁════════════════════ 0.General ════════════════════꧂
+═════════════════════════════════════════════════════*/
+
+#app {
+    font-family: 'Nunito-Regular';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+$sizes: (
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px,
+    'xxl': 1400px,
+);
+
+$variants: (
+    "primary": var(--bs-primary),
+    "secondary": var(--bs-secondary),
+    "success": var(--bs-success),
+    "info": var(--bs-info),
+    "warning": var(--bs-warning),
+    "danger": var(--bs-danger),
+    "light": var(--bs-light),
+    "dark": var(--bs-dark),
+    "grey": var(--bs-grey),
+    "soft": var(--bs-soft)
+);
+
+.background-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.background-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shadow-1 {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.all-transitions {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.all-transitions-middle {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.all-transitions-slow {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+// .text-container {
+//     max-width: 200px;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap; /* Evita saltos de línea */
+// }
+
+.text-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.imagen-uniforme-sm {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imagen-uniforme {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imagen-uniforme {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-responsive-uniforme {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-responsive-uniforme-lg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+// @each $variant, $color in $variants {
+//     .border-right-#{$variant} {
+//         right: 1px solid $color;
+//     }
+// }
+
+.justify-content-stretch {
+    justify-content: stretch !important;
+}
+
+
+/*════════════════════════════════════════════════════
+꧁═════════════════════ 1.Flex ═════════════════════꧂
+═════════════════════════════════════════════════════*/
+
+%flex {
+    display: flex;
+
+    &-start {
+        justify-content: flex-start;
+    }
+    &-center {
+        justify-content: center;
+    }
+    &-end {
+        justify-content: flex-end;
+    }
+    &-between {
+        justify-content: space-between;
+    }
+}
+.flex {
+    &-start {
+        @extend %flex, %flex-start;
+        align-items: flex-start;
+
+        &-start { @extend %flex, %flex-start; align-items: start !important; }
+        &-center { @extend %flex, %flex-start; align-items: center !important; }
+        &-end { @extend %flex, %flex-start; align-items: end !important; }
+    }
+    &-center {
+        @extend %flex, %flex-center;
+        align-items: center;
+
+        &-start { @extend %flex, %flex-center; align-items: start !important; }
+        &-center { @extend %flex, %flex-center; align-items: center !important; }
+        &-end { @extend %flex, %flex-center; align-items: end !important; }
+    }
+    &-end {
+        @extend %flex, %flex-end;
+        align-items: flex-end;
+
+        &-start { @extend %flex, %flex-end; align-items: start !important; }
+        &-center { @extend %flex, %flex-end; align-items: center !important; }
+        &-end { @extend %flex, %flex-end; align-items: end !important; }
+    }
+    &-between {
+        @extend %flex, %flex-between;
+        align-items: center;
+
+        &-start { @extend %flex, %flex-between; align-items: start !important; }
+        &-center { @extend %flex, %flex-between; align-items: center !important; }
+        &-end { @extend %flex, %flex-between; align-items: end !important; }
+    }
+}
+
+/*════════════════════════════════════════════════════
+꧁═════════════════════ 2.Text ═════════════════════꧂
+═════════════════════════════════════════════════════*/
+
+/*═══════════════════════ Font Nunito ═══════════════════════*/
+
+@import '../fonts/stylesheet.css';
+
+%nunito-black {
+    font-family: 'Nunito-Black';
+}
+
+%nunito-bold {
+    font-family: 'Nunito-Bold';
+}
+
+%nunito-semibold {
+    font-family: 'Nunito-SemiBold';
+}
+
+%nunito-regular {
+    font-family: 'Nunito-Regular';
+}
+
+%nunito-light {
+    font-family: 'Nunito-Light';
+}
+
+/*══════════════════════ Color ═══════════════════════*/
+.text-white {
+    color: white !important;
+
+    span {
+        color: white;
+    }
+}
+.text-dark {
+    color: var(--bs-dark) !important;
+
+    span {
+        color: var(--bs-dark);
+    }
+}
+.text-grey {
+    color: $grey !important;
+
+    span {
+        color: $grey;
+    }
+}
+.text-soft {
+    color: $soft !important;
+
+    span {
+        color: $soft;
+    }
+}
+
+.line-height-60, %line-height-60 {
+    line-height: 60%;
+}
+.line-height-80, %line-height-80 {
+    line-height: 80%;
+}
+.line-height-100, %line-height-100 {
+    line-height: 100%;
+}
+.line-height-120, %line-height-120 {
+    line-height: 120%;
+}
+
+/*═══════════════════ Responsive ════════════════════*/
+
+// Titles
+.title-xxl {
+    @extend %nunito-black, %line-height-100;
+    font-size: clamp(4rem, 7vw, 6rem);
+}
+.title-xl {
+    @extend %nunito-black, %line-height-100;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+}
+.title-lg {
+    @extend %nunito-black, %line-height-100;
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+.title-md {
+    @extend %nunito-black, %line-height-100;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+}
+.title-sm {
+    @extend %nunito-black, %line-height-100;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+// Descriptions
+.description-xxl {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+.description-xl {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+}
+.description-lg {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.4rem, 4vw, 2.3rem);
+}
+.description-md {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+}
+.description-sm {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+.description-xs {
+    @extend %nunito-light, %line-height-120;
+    font-size: clamp(1.0rem, 4vw, 1.0rem);
+}
+.description-xxs {
+    @extend %nunito-semibold, %line-height-120;
+    font-size: clamp(.7rem, 4vw, .75rem);
+}
+// .description-xxs {
+//     @extend %manrope-semibold, %line-height-120;
+//     font-size: clamp(.7rem, 4vw, .7rem);
+// }
+
+/*════════════════════════════════════════════════════
+꧁══════════════════ 3.Components ══════════════════꧂
+═════════════════════════════════════════════════════*/
+
+.btn-pill {
+    border-radius: 100px;
+}
+
+.btn-underline {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.search_input {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 0 15px;
+    height: 35px;
+}
+
+.input-placeholder-white::placeholder {
+    color: #FFFFFFCC !important;
+}
+
+.action-btn {
+    width: 100%;
+    white-space: normal;
+}
+
+@media (min-width: 768px) {
+    .action-btn {
+        width: 25%;
+    }
+}
+
+a {
+    color: var(--bs-success) !important;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--bs-success) !important;
+    }
+}
+
+.btn-outline-danger {
+    --bs-btn-hover-color: #FFFFFF;
+}
+
+.btn-outline-grey {
+    --bs-btn-hover-color: #15191D;
+}
+
+
+
+
+/*════════════════════════════════════════════════════
+꧁═══════════════════ 4.Overwrite ═══════════════════꧂
+═════════════════════════════════════════════════════*/
+
+.btn {
+    // color: white;
+}
+
+.btn-light {
+    color: black !important;
+}
+
+.btn-grey {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #{$grey};
+    --bs-btn-border-color: #{$grey};
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #2b3239;
+    --bs-btn-hover-border-color: #2b3239;
+    --bs-btn-focus-shadow-rgb: 43, 50, 57;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #343d46;
+    --bs-btn-active-border-color: #343d46;
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #{$grey};
+    --bs-btn-disabled-border-color: #{$grey};
+}
+
+.form-control-warning {
+    background-color: var(--bs-info);
+}
+
+
+/*════════════════════════════════════════════════════
+꧁══════════ 5.Complementary To Bootstrap ══════════꧂
+═════════════════════════════════════════════════════*/
+
+
+/*══════════════════════ Grid ═══════════════════════*/
+
+.bg-soft {
+    background-color: $soft !important;
+}
+
+.my-6 {
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+}
+
+.mt-6 {
+    margin-top: 4rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 4rem !important;
+}
+
+/*════════════════════ Borders ══════════=═══════════*/
+
+.border {
+    &-top {
+        &-primary { border-top: 3px solid var(--bs-info); }
+        &-secondary { border-top: 3px solid var(--bs-secondary); }
+        &-success { border-top: 3px solid var(--bs-success); }
+        &-info { border-top: 3px solid var(--bs-info); }
+        &-warning { border-top: 3px solid var(--bs-warning); }
+        &-danger { border-top: 3px solid var(--bs-danger); }
+        &-light { border-top: 3px solid var(--bs-gray-100); }
+        &-dark { border-top: 3px solid var(--bs-gray-900); }
+    }
+
+    &-bottom {
+        &-primary { border-bottom: 3px solid var(--bs-info); }
+        &-secondary { border-bottom: 3px solid var(--bs-secondary); }
+        &-success { border-bottom: 3px solid var(--bs-success); }
+        &-info { border-bottom: 3px solid var(--bs-info); }
+        &-warning { border-bottom: 3px solid var(--bs-warning); }
+        &-danger { border-bottom: 3px solid var(--bs-danger); }
+        &-light { border-bottom: 3px solid var(--bs-gray-100); }
+        &-dark { border-bottom: 3px solid var(--bs-gray-900); }
+    }
+
+    &-left {
+        &-primary { border-left: 3px solid var(--bs-info); }
+        &-secondary { border-left: 3px solid var(--bs-secondary); }
+        &-success { border-left: 3px solid var(--bs-success); }
+        &-info { border-left: 3px solid var(--bs-info); }
+        &-warning { border-left: 3px solid var(--bs-warning); }
+        &-danger { border-left: 3px solid var(--bs-danger); }
+        &-light { border-left: 3px solid var(--bs-gray-100); }
+        &-dark { border-left: 3px solid var(--bs-gray-900); }
+    }
+
+    &-right {
+        &-primary { border-right: 3px solid var(--bs-info); }
+        &-secondary { border-right: 3px solid var(--bs-secondary); }
+        &-success { border-right: 3px solid var(--bs-success); }
+        &-info { border-right: 3px solid var(--bs-info); }
+        &-warning { border-right: 3px solid var(--bs-warning); }
+        &-danger { border-right: 3px solid var(--bs-danger); }
+        &-light { border-right: 3px solid var(--bs-gray-100); }
+        &-dark { border-right: 3px solid var(--bs-gray-900); }
+    }
+}
+
+.border-right {
+    border-right: 2px solid #97979780;
+}
+
+
+/*════════════════════════════════════════════════════
+꧁══════════════════ 6.Animations ══════════════════꧂
+═════════════════════════════════════════════════════*/
+
+.fade-in {
+    animation: fade-in 2s forwards 1;
+}
+
+@keyframes fade-in {
+
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(45deg);
+    }
+
+    75% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

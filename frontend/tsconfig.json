@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "SRC/*": ["src/*"],
+            "TEMPLATES/*": ["src/templates/*"],
+            "VIEWS/*": ["src/views/*"],
+            "COMPONENTS/*": ["src/components/*"],
+            "ASSETS/*": ["src/assets/*"],
+            "ROUTER/*": ["src/router/*"],
+            "STORE/*": ["src/store/*"],
+            "PLUGINS/*": ["src/plugins/*"],
+            "LIBS/*": ["src/libs/*"]
+        },
+        "allowJs": true,
+        "checkJs": false
+    },
+    "include": ["src/**/*", "vite.config.js"],
+    "exclude": ["node_modules", "dist"]
+}
