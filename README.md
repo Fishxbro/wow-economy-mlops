@@ -45,7 +45,7 @@ Azeroth permite:
 Abrir una terminal WSL:
 
 ```bash
-cd ~/proyectos/wow-economy-mlops
+cd /ruta/donde/clonaste/wow-economy-mlops
 source .venv/bin/activate
 python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
@@ -59,7 +59,7 @@ http://localhost:8000/docs
 Abrir otra terminal WSL:
 
 ```bash
-cd ~/proyectos/wow-economy-mlops/frontend
+cd /ruta/donde/clonaste/wow-economy-mlops/frontend
 nvm use
 npm run dev
 ```
@@ -77,7 +77,7 @@ VITE_API_URL=http://127.0.0.1:8000
 ### 3. Opcional: iniciar Apache Airflow
 
 ```bash
-cd ~/proyectos/wow-economy-mlops/airflow
+cd /ruta/donde/clonaste/wow-economy-mlops/airflow
 docker compose up -d
 ```
 
