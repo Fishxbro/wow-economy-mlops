@@ -25,6 +25,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=[os.environ["FRONTEND_ORIGIN"].rstrip("/")] if os.environ.get("FRONTEND_ORIGIN") else [],
     allow_origin_regex=r"^http://(localhost|127\.0\.0\.1):\d+$",
     allow_methods=["GET"],
     allow_headers=["*"],

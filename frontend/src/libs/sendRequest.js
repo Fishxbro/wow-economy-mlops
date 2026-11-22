@@ -14,7 +14,7 @@ export default async function sendRequest(path, method = 'GET', body = null, que
             method,
             headers: body ? { 'Content-Type': 'application/json' } : undefined,
             body: body ? JSON.stringify(body) : undefined,
-            signal: globalThis.AbortSignal.timeout(10000),
+            signal: globalThis.AbortSignal.timeout(60000),
         })
         const data = await response.json().catch(() => null)
 
